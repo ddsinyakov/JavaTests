@@ -12,7 +12,4 @@ public abstract class Literature {
         this.title = title;
         return this; // return for chaining
     }
-
-    // shows data in console
-    public abstract void print();
 }

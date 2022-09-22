@@ -1,6 +1,9 @@
 package step.learning.oop;
 
-public class Book extends Literature {
+public class Book
+        extends Literature
+        implements Printable
+{
     private String author;
 
     public String getAuthor() {

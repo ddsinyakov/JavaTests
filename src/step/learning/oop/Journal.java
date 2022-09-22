@@ -1,6 +1,9 @@
 package step.learning.oop;
 
-public class Journal extends Literature {
+public class Journal
+        extends Literature
+        implements Printable, Periodic
+{
     private Integer number;
 
     public Integer getNumber() {
@@ -15,7 +18,7 @@ public class Journal extends Literature {
     // shows data in console
     @Override
     public void print() {
-        System.out.printf("Book. Number: %s. Title: %s%n",
+        System.out.printf("Journal. Number: %s. Title: %s%n",
                 this.number, super.getTitle());
     }
 }

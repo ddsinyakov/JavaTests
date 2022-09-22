@@ -10,7 +10,7 @@ public class Main {
         * new Complex().Run();
         * */
 
-        new Library().Run();
+        new Library().run();
 
     }
 }
