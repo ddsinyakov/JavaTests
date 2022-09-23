@@ -1,5 +1,6 @@
 package step.learning.oop;
 
+import java.io.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +8,26 @@ import java.util.List;
 // class that describes library
 public class Library {
 
-    private final List<Literature> funds; // list of items
+    private List<Literature> funds; // list of items
+
+    private String fileName; // name of file for serialization
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public Library setFileName(String fileName) {
+        this.fileName = fileName;
+        return this;
+    }
 
     public Library() {
         funds = new ArrayList<>(); // initialize list with ArrayList
+    }
+
+    public Library(String fileName) {
+        funds = new ArrayList<>(); // initialize list with ArrayList
+        this.fileName = fileName;
     }
 
     // add new item
@@ -46,6 +63,32 @@ public class Library {
             ((Printable) literature).print(); // show data if literature is instance of Printable interface
         } else {
             System.out.println("Unprintable: " + literature.getTitle());
+        }
+    }
+
+    public void serializeFunds() {
+        try (FileOutputStream file = new FileOutputStream(fileName)) {      // open access to file
+
+            ObjectOutputStream oos = new ObjectOutputStream(file);          // create output stream for serialization
+            oos.writeObject(funds);                                         // write object to file
+            oos.flush();                                                    // flush data
+
+        } catch (IOException ex) {
+            System.out.println("Error serialization: " + ex.getMessage());
+        }
+    }
+
+    public void deserializeFunds() {
+        try (FileInputStream file = new FileInputStream(fileName)){         // open access to file
+
+            ObjectInputStream ois = new ObjectInputStream(file);            // create output stream for deserialization
+            @SuppressWarnings("unchecked")                                  // uncheck warning
+            List<Literature> list =
+                    (ArrayList<Literature>) ois.readObject();               // read data as List<Literature>
+            funds = list;                                                   // save data to funds
+
+        } catch (Exception ex) {
+            System.out.println("Error serialization: " + ex.getMessage());
         }
     }
 
@@ -94,6 +137,8 @@ public class Library {
             System.out.println(ex.getMessage());
         }
 
+        serializeFunds();
+        deserializeFunds();
 
         // show all items in library
         printFunds();

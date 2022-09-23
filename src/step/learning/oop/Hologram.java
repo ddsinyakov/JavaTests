@@ -1,6 +1,10 @@
 package step.learning.oop;
 
-public class Hologram extends Literature {
+import java.io.Serializable;
+
+public class Hologram
+        extends Literature
+        implements Serializable {
 
     @Override
     public Hologram setTitle(String title) {

@@ -1,16 +1,12 @@
 package step.learning;
 
-import step.learning.oop.Library;
+import step.learning.oop.LibraryMenu;
 
 public class Main {
     public static void main(String[] args) {
 
-        /*
-        * new DataTypes().Run();
-        * new Complex().Run();
-        * */
-
-        new Library().run();
-
+        new LibraryMenu()
+                .run();
+        // new SerializationDemo().run();
     }
 }

@@ -1,9 +1,10 @@
 package step.learning.oop;
 
+import java.io.Serializable;
+
 public class Journal
         extends Literature
-        implements Printable, Periodic
-{
+        implements Printable, Periodic, Serializable {
     private Integer number;
 
     public Integer getNumber() {
