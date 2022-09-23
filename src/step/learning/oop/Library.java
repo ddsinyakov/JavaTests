@@ -21,58 +21,75 @@ public class Library {
     // show all items
     public  void printFunds() {
         for(Literature literature : funds) {
-            if(literature instanceof Printable){
-                ((Printable) literature).print(); // show data if literature is instance of Printable interface
-            } else {
-                System.out.println("Unprintable: " + literature.getTitle());
-            }
+            print(literature);
         }
     }
 
     // show Periodic items
     public void printPeriodic() {
         for(Literature literature : funds) {
-            if (literature instanceof Periodic && literature instanceof Printable)
-                ((Printable) literature).print(); // show item only if it is Periodic and Printable
+            if (literature instanceof Periodic) // show item only if it is Periodic and Printable
+                print(literature);
         }
     }
 
     // show nonPeriodic items
     public void printNonPeriodic() {
         for(Literature literature : funds) {
-            if (!(literature instanceof Periodic) && literature instanceof Printable)
-                ((Printable) literature).print(); // show item only if it is not Periodic and Printable
+            if (!(literature instanceof Periodic)) // show item only if it is not Periodic and Printable
+                print(literature);
+        }
+    }
+
+    private void print(Literature literature) {
+        if(literature instanceof Printable){
+            ((Printable) literature).print(); // show data if literature is instance of Printable interface
+        } else {
+            System.out.println("Unprintable: " + literature.getTitle());
         }
     }
 
     public void run() {
-        // add new book to our library
+        // add new Book
         add(new Book()
                 .setAuthor("Dima")
                 .setTitle("Learning Java")
         );
 
-        // add new journal to our library
+        // add new Journal
         add(new Journal()
                 .setNumber(23)
                 .setTitle("Learning C#")
         );
 
-        // add new newspaper to our library
+        // add new Hologram
+        add(new Hologram()
+                .setTitle("Leia asks Obi-Wan for help")
+        );
+
+        // add new Poster
+        add(new Poster()
+                .setTitle("Poster 1")
+        );
+
+        add(new Poster()
+                .setTitle("Poster 2")
+        );
+
+        // add new Newspaper
         try {
             add(new Newspaper()
                     .setDate("2022-09-22")
-                    .setTitle("Learning C#")
+                    .setTitle("Daily Bugle")
             );
             add(new Newspaper()
-                    .setDate("2021-09-22")
-                    .setTitle("Learning Java")
+                    .setDate("2021-07-15")
+                    .setTitle("Daily Planet")
             );
             add(new Newspaper()
-                    .setDate("2020-09-22")
-                    .setTitle("Learning JS")
+                    .setDate("2020-12-20")
+                    .setTitle("New York Times")
             );
-            
         } catch (ParseException ex) {
             System.out.println(ex.getMessage());
         }
