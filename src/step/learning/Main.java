@@ -13,7 +13,7 @@ public class Main {
 
         // new FilesDemo().run();
 
-         new FileSystem().run();
-        // new AnnotationsDemo().run();
+        // new FileSystem().run();
+        new AnnotationsDemo().run();
     }
 }
