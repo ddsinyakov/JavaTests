@@ -1,8 +1,12 @@
 package step.learning.files;
 
+import step.learning.anno.DemoClass;
+import step.learning.anno.EntryPoint;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
+@DemoClass
 public class FileSystem {
 
     // separator for menu interface
@@ -20,10 +24,10 @@ public class FileSystem {
         processes.put("cat", new CatProcessor(observer));
         processes.put("ls", new LsProcessor(observer));
     }
-
     /**
      * Menu method to run application
      */
+    @EntryPoint
     public void run() {
 
         Scanner scan = new Scanner(System.in);

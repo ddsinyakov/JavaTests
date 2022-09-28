@@ -1,17 +1,15 @@
 package step.learning.anno;
 
-import jdk.jshell.spi.ExecutionControlProvider;
-
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+@DemoClass
 public class AnnotationsDemo {
 
     @FieldAnnotation(value = "For all versions", priority = -1)
     private final String separator = "-----------------------------------------------------------------------------------------";
 
-    @MethodAnnotation("Entry point")
+    @EntryPoint
     public void run() {
 
         // region Get types

@@ -1,11 +1,16 @@
 package step.learning.oop;
 
+import step.learning.anno.DemoClass;
+import step.learning.anno.EntryPoint;
+
 import java.util.Scanner;
 
+@DemoClass
 public class LibraryMenu {
 
     private static final String separator =
             "===============================================================================";
+    @EntryPoint
     public void run() {
         Scanner scan = new Scanner(System.in);                  // scanner for console input
         Library lib = new Library().setFileName("save.ser");    // library object

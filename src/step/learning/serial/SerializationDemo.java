@@ -1,13 +1,18 @@
 package step.learning.serial;
 
+import step.learning.anno.DemoClass;
+import step.learning.anno.EntryPoint;
+
 import javax.xml.crypto.Data;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@DemoClass
 public class SerializationDemo {
 
     private final String fileName = "save.ser";
+    @EntryPoint
     public void run(){
 
         serializeList();
