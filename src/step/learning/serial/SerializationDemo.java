@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@DemoClass
+@DemoClass(priority = 2)
 public class SerializationDemo {
 
     private final String fileName = "save.ser";

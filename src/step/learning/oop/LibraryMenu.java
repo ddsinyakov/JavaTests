@@ -5,7 +5,7 @@ import step.learning.anno.EntryPoint;
 
 import java.util.Scanner;
 
-@DemoClass
+@DemoClass(priority = 1)
 public class LibraryMenu {
 
     private static final String separator =

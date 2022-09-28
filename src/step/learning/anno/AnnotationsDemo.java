@@ -3,7 +3,7 @@ package step.learning.anno;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-@DemoClass
+@DemoClass(priority = 5)
 public class AnnotationsDemo {
 
     @FieldAnnotation(value = "For all versions", priority = -1)
@@ -138,7 +138,7 @@ public class AnnotationsDemo {
 
             }
             else {
-                System.out.printf("Field '%s' of class '%s' has no annotation",
+                System.out.printf("Field '%s' of class '%s' has no annotation%n",
                         field.getName(), type.getName());
             }
         }

@@ -6,7 +6,7 @@ import step.learning.anno.EntryPoint;
 import java.util.HashMap;
 import java.util.Scanner;
 
-@DemoClass
+@DemoClass(priority = 4)
 public class FileSystem {
 
     // separator for menu interface

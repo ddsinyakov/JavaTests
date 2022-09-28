@@ -3,7 +3,7 @@ package step.learning;
 import step.learning.anno.DemoClass;
 import step.learning.anno.EntryPoint;
 
-@DemoClass(priority = 1)
+@DemoClass(priority = 0)
 public class DataTypes {
 
     @EntryPoint
@@ -37,5 +37,6 @@ public class DataTypes {
         System.out.print(ConsoleColors.CYAN);
         System.out.println(c + " (char)");
 
+        System.out.print(ConsoleColors.WHITE);
     }
 }

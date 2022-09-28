@@ -6,7 +6,7 @@ import step.learning.anno.EntryPoint;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
-@DemoClass
+@DemoClass(priority = 3)
 public class FilesDemo {
 
     @EntryPoint
