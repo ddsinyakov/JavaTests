@@ -2,6 +2,7 @@ package step.learning;
 
 import step.learning.anno.DemoClass;
 import step.learning.anno.EntryPoint;
+import step.learning.threading.ThreadingDemo;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -11,7 +12,11 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
+        // run();
+        new ThreadingDemo().run();
+    }
 
+    public static void run() {
         List<Application> demoClasses = getClasses();
 
         if (demoClasses == null) {
