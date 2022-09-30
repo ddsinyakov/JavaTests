@@ -2,6 +2,7 @@ package step.learning;
 
 import step.learning.anno.DemoClass;
 import step.learning.anno.EntryPoint;
+import step.learning.threading.SyncDemo;
 import step.learning.threading.ThreadingDemo;
 
 import java.io.File;
@@ -13,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         // run();
-        new ThreadingDemo().run();
+        new SyncDemo().run();
     }
 
     public static void run() {
