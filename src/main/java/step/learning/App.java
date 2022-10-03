@@ -2,22 +2,29 @@ package step.learning;
 
 import step.learning.anno.DemoClass;
 import step.learning.anno.EntryPoint;
-import step.learning.threading.SyncDemo;
-import step.learning.threading.ThreadingDemo;
+import step.learning.services.RandomProvider;
+import step.learning.services.StringService;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.*;
 
-public class Main {
+public class App {
+    @Inject
+    StringService stringService;
 
-    public static void main(String[] args) {
-        // run();
-        new SyncDemo().run();
+    @Inject
+    RandomProvider randomProvider;
+
+    public void runDemo() {
+        System.out.println("IoC Demo");
+        System.out.println("String Service: " + stringService.getString());
+        System.out.println("Random number: " + randomProvider.getN());
     }
 
-    public static void run() {
+    public void run() {
         List<Application> demoClasses = getClasses();
 
         if (demoClasses == null) {
@@ -35,7 +42,7 @@ public class Main {
         }
     }
 
-    public static List<Application> getClasses() {
+    public List<Application> getClasses() {
         Class<?> currentClass = Main.class;                         // get current class we work with
         String packageName = currentClass.getPackageName();         // get name of package current class is
 
@@ -71,7 +78,7 @@ public class Main {
         return demoClasses;
     }
 
-    public static void addClassName(File file, String prefix, List<String> toAdd) {
+    public void addClassName(File file, String prefix, List<String> toAdd) {
         String fileName = file.getName();
         if (fileName.endsWith(".class")) {
             toAdd.add(
@@ -80,7 +87,7 @@ public class Main {
         }
     }
 
-    public static List<String> getClassNames(String packageName) {
+    public List<String> getClassNames(String packageName) {
 
         // loader to get class file
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -127,7 +134,7 @@ public class Main {
         return classNames;
     }
 
-    public static void showMenu(List<Application> demoClasses) {
+    public void showMenu(List<Application> demoClasses) {
         System.out.println("======================================================================================");
         int i = 1;
         for (Application theClass : demoClasses ) {
@@ -136,7 +143,7 @@ public class Main {
         System.out.println("0: Exit");
     }
 
-    public static int getUserInput(int size) {
+    public int getUserInput(int size) {
         Scanner scanner = new Scanner(System.in);               // scanner to read user input
         int result = -1;
 
@@ -160,7 +167,7 @@ public class Main {
         return result;
     }
 
-    public static void invoke(List<Application> demoClasses, int index) {
+    public void invoke(List<Application> demoClasses, int index) {
         Application app = demoClasses.get(index);                 // get chosen class type
 
         Object obj;                                               // get instance of chosen type
