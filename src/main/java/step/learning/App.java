@@ -4,6 +4,7 @@ import step.learning.anno.DemoClass;
 import step.learning.anno.EntryPoint;
 import step.learning.services.RandomProvider;
 import step.learning.services.StringService;
+import step.learning.services.TimeService;
 
 import javax.inject.Inject;
 import java.io.File;
@@ -18,10 +19,15 @@ public class App {
     @Inject
     RandomProvider randomProvider;
 
+    @Inject
+    TimeService timeService;
+
     public void runDemo() {
         System.out.println("IoC Demo");
         System.out.println("String Service: " + stringService.getString());
         System.out.println("Random number: " + randomProvider.getN());
+        System.out.println("Current data: " + timeService.getDate());
+        System.out.println("Current time: " + timeService.getTime());
     }
 
     public void run() {
